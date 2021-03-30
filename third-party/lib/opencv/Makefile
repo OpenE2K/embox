@@ -95,6 +95,8 @@ $(BUILD) :
 	cd $(BUILD_DIR) && mkdir build; \
 	cd build && cmake $(OPENCV_FLAGS) ../$(PKG_NAME)-$(PKG_VER)/ && \
 	$(MAKE) MAKEFLAGS='$(EMBOX_IMPORTED_MAKEFLAGS)'
+	touch $@
 
 $(INSTALL) :
 	cd $(BUILD_DIR) && cp build/lib/libopencv_*.a build/3rdparty/lib/*a install
+	touch $@
