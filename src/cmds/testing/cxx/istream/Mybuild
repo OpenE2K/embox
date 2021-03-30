@@ -1,0 +1,53 @@
+package embox.cmd.testing.cxx
+
+@AutoCmd
+@Cmd(name="istream",
+	help="",
+	man="")
+@BuildDepends(embox.lib.libgcc)
+@BuildDepends(embox.lib.libstdcxx)
+@Build(stage=2,script="true")
+module istream {
+	@InitFS
+	source "istream.bin"
+
+	@Cflags("-fsigned-char")
+	@Cflags("-W")
+	@Cflags("-Wall")
+	@Cflags("-Werror=return-type")
+	@Cflags("-Werror=non-virtual-dtor")
+	@Cflags("-Werror=address")
+	@Cflags("-Werror=sequence-point")
+	@Cflags("-Wformat")
+	@Cflags("-Werror=format-security")
+	@Cflags("-Wmissing-declarations")
+	@Cflags("-Wundef")
+	@Cflags("-Winit-self")
+	@Cflags("-Wpointer-arith")
+	@Cflags("-Wshadow")
+	@Cflags("-Wsign-promo")
+	@Cflags("-Wuninitialized")
+	@Cflags("-Winit-self")
+	@Cflags("-Wsuggest-override")
+	@Cflags("-Wno-narrowing")
+	@Cflags("-Wno-delete-non-virtual-dtor")
+	@Cflags("-Wno-comment")
+	@Cflags("-Wimplicit-fallthrough=3")
+	@Cflags("-Wno-strict-overflow")
+	@Cflags("-fdiagnostics-show-option")
+	@Cflags("-fno-omit-frame-pointer")
+	@Cflags("-ffunction-sections")
+	@Cflags("-fdata-sections")
+	@Cflags("-mfp16-format=ieee")
+	@Cflags("-fvisibility=hidden")
+	@Cflags("-fvisibility-inlines-hidden")
+	@Cflags("-O2")
+	@Cflags("-g")
+	@Cflags("-DNDEBUG")
+	@Cflags("-std=c++11")
+
+	source "istream.cpp"
+
+	@NoRuntime depends embox.lib.libgcc
+	@NoRuntime depends embox.lib.libstdcxx
+}
