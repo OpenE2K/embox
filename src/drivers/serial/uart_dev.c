@@ -89,7 +89,10 @@ int uart_register(struct uart *uart,
 		return -EBUSY;
 	}
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wformat-truncation"
 	snprintf(uart->dev_name, UART_NAME_MAXLEN, "ttyS%d", (char)uart->idx);
+#pragma GCC diagnostic pop
 
 	if (uart_defparams) {
 		memcpy(&uart->params, uart_defparams, sizeof(struct uart_params));
