@@ -3,7 +3,8 @@ package platform.opencv.data_samples.facedetect
 module data {
 	@InitFS(target_dir="facedetect_data")
 	source "haarcascades",
-	       "seq",
+	       "seq_512x512",
+	       "seq_256x256",
 	       "lena.png",
 	       "lena_256x256.png"
 }
