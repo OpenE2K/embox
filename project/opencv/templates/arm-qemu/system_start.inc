@@ -1,4 +1,5 @@
 "export PWD=/",
 "export HOME=/",
 //"facedetect facedetect_data/lena.png",
+"facedetect facedetect_data/seq_256x256/img_%03d.png",
 "tish",
